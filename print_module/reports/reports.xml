@@ -5,18 +5,18 @@
         <!-- NAME & FILE_NAME should be the same -->
             <report
              id="account_vendor_bills_report"
-             model="account.payment"
+             model="account.move"
              report_type="qweb-pdf"
              string="Vendor Bills Report"
-             name="print_module.vendor_bills_report_container"
-             file="print_module.vendor_bills_report_container"
+             name="account.vendor_bills_report_container"
+             file="account.vendor_bills_report_container"
              attachment="(object.state == 'posted') and ((object.name or 'INV').replace('/','_')+'.pdf')"
              print_report_name="(object._get_report_base_filename())"
             />
 
             <report
             id="vouchers_payable_bill_report"
-            model="account.move"
+            model="account.payment"
             string="Voucher's Payable"
             report_type="qweb-pdf"
             name="print_module.bill_report_container"

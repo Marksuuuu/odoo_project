@@ -2,7 +2,7 @@
     'name': 'Custom Print',
     'version': '0.1',
     'author': 'John Raymark',
-    'summary': 'Invoices & Payments',
+    'summary': 'Custom Print by Mark',
     'sequence': 1,
     'description': 'Custom Print by Mark',
     'category': 'Application',

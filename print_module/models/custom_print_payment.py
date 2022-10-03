@@ -1,17 +1,16 @@
 from odoo import fields, models, api
 
 
-class CustomPrintPayment(models.AbstractModel):
-    _name = 'report.print_module.report_payment_receipt'
-    _description = 'Custom Module for Print'
+class CustomPayment(models.AbstractModel):
+    _name = 'report.print_module.bill_report_container'
+    _description = 'Custom Print from'
 
-    @api.model
     def _get_report_values(self, docids, data=None):
-        docs = self.env['account.payment'].browse(docids)
-        return {
+        report_obj = self.env['ir.actions.report']
+        report = report_obj._get_report_from_name('print_module.bill_report_container')
+        docargs = {
             'doc_ids': docids,
-            'doc_model': 'account.payment',
-            'docs': docs,
-            'lines': self.some_func(docs),
-            'data': data,
+            'doc_model': report.account.move,
+            'docs': self,
         }
+        return docargs
