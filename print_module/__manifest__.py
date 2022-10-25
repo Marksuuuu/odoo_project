@@ -4,13 +4,16 @@
     'author': 'John Raymark',
     'summary': 'Custom Print by Mark',
     'sequence': 1,
-    'description': 'Custom Print by Mark',
+    'description': """
+        Custom Print by Mark
+    """,
     'category': 'Application',
     'website': '',
     'images': [
 
     ],
     'depends': [
+        'account',
         'account',
     ],
     'data': [
@@ -19,6 +22,7 @@
         'reports/vendor_bills_report.xml',
         'reports/bills_report.xml',
         'reports/report_payment.xml',
+        'reports/report_payment_receipt_templates.xml',
     ],
     'demo': [
     ],

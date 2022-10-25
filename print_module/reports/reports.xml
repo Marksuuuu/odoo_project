@@ -8,21 +8,29 @@
              model="account.move"
              report_type="qweb-pdf"
              string="Vendor Bills Report"
-             name="account.vendor_bills_report_container"
-             file="account.vendor_bills_report_container"
+             name="print_module.vendor_bills_report_container"
+             file="print_module.vendor_bills_report_container"
              attachment="(object.state == 'posted') and ((object.name or 'INV').replace('/','_')+'.pdf')"
              print_report_name="(object._get_report_base_filename())"
             />
-
             <report
             id="vouchers_payable_bill_report"
-            model="account.payment"
+            model="account.move"
             string="Voucher's Payable"
             report_type="qweb-pdf"
             name="print_module.bill_report_container"
             file="print_module.bill_report_container"
             attachment="(object.state == 'posted') and ((object.name or 'INV').replace('/','_')+'.pdf')"
             print_report_name="(object._get_report_base_filename())"
+            />
+           <report
+            id="report_payment_receipt_id"
+            model="account.payment"
+            string="Payment Report Receipt"
+            report_type="qweb-pdf"
+            name="print_module.report_payment_receipt"
+            file="print_module.report_payment_receipt"
+            menu="True"
             />
         <!-- QWeb Reports -->
         <!-- NAME & FILE_NAME should be the same -->

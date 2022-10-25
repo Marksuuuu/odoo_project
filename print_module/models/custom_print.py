@@ -16,6 +16,21 @@ class CustomModule(models.AbstractModel):
         }
         return docargs
 
+class CustomModulePayment(models.AbstractModel):
+    _name = 'report.print_module.report_payment_receipt'
+    _description = 'Custom Module for Print'
+
+    @api.model
+    def _get_report_values(self, docids, data=None):
+        report_obj = self.env['ir.actions.report']
+        report = report_obj._get_report_from_name('print_module.report_payment_receipt')
+        docargs = {
+            'doc_ids': docids,
+            'doc_model': report.account.payment,
+            'docs': self,
+            }
+        return docargs
+
     # @api.model
     # def _get_report_values(self, docids, data=None):
     #     docs = self.env['account.move'].browse(docids)
